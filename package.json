@@ -9,6 +9,7 @@
     "githubot": "^1.0.1",
     "googlemaps": "^1.12.0",
     "hubot": "^2.19.0",
+    "hubot-circleci": "^0.8.1",
     "hubot-diagnostics": "0.0.1",
     "hubot-google-images": "^0.2.6",
     "hubot-google-translate": "^0.2.0",
