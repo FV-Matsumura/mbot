@@ -72,13 +72,13 @@ module.exports = (robot) ->
       return
     project = escape(toProject(msg.match[1]))
     branch = if msg.match[2] then escape(msg.match[2]) else 'master'
-    # msg.send "#{endpoint}/project/#{project}/tree/#{branch}?circle-token=#{process.env.HUBOT_CIRCLECI_TOKEN}"
-    msg.http("#{endpoint}/project/#{project}/tree/#{branch}?circle-token=#{process.env.HUBOT_CIRCLECI_TOKEN}")
-      .headers("Accept": "application/json")
-      .get() handleResponse  msg, (response) ->
-          if response.length == 0
-            msg.send "Current status: #{project} [#{branch}]: unknown"
-          else
-            currentBuild = response[0]
-            msg.send "Current status: #{formatBuildStatus(currentBuild)}"
+    msg.send "#{endpoint}/project/#{project}/tree/#{branch}?circle-token=#{process.env.HUBOT_CIRCLECI_TOKEN}"
+    # msg.http("#{endpoint}/project/#{project}/tree/#{branch}?circle-token=#{process.env.HUBOT_CIRCLECI_TOKEN}")
+    #   .headers("Accept": "application/json")
+    #   .get() handleResponse  msg, (response) ->
+    #       if response.length == 0
+    #         msg.send "Current status: #{project} [#{branch}]: unknown"
+    #       else
+    #         currentBuild = response[0]
+    #         msg.send "Current status: #{formatBuildStatus(currentBuild)}"
 
